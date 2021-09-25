@@ -1,22 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="page-style.css">
+    <title>Radio Live</title>
+    <link rel="stylesheet" href="./assets/css/page-style.css">
     <link href="https://fonts.googleapis.com/css?family=Exo:900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   </head>
   <body>
     <header class = "header">
       <div class="header-elements">
         <h1 class = "header-text">
-          <span class = "header-text primary">Thinking of buying a headphone?</span>
-          <span class = "header-text secondary">HTML Business </span>
-          <span class = "header-text thirdary">Templates</span>
+          <span class = "header-text primary">Tu música favorita la encuentras aqui</span>
+          <span class = "header-text secondary">Radio en Vivo </span>
+          <span class = "header-text thirdary">Disfruta!</span>
 
         </h1>
         <a href="#" class="btn-white">Shopping Now</a>
       </div>
     </header>
+      <div class="main">
+        <p id="logo"><i class="fa fa-music" aria-hidden="true"></i></p>
+        <!--parte derecha-->
+        <div class="left">
+          <img id="track-image" src="" alt="">
+          <div class="volume">
+            <p id="volume_show">90</p>
+            <i class="fa fa-volume-up" aria-hidden="true" id="volume-icon"></i>
+            <input type="range" min="0" max="100" value="90" id="rango">
+          </div>
+        </div>
+        <!--parte izquierda-->
+        <div class="right">
+          <div class="show_song_no">
+            <p id="present">1</p>
+            <p>/</p>
+            <p id="total">5</p>
+          </div>
+          <!--titulo-cancion-->
+          <p id="title">title.mp3</p>
+          <p id="artist">Artist name</p>
+          <!--parte-media-->
+          <div class="middle">
+            <button id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+            <button id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button id="stop"><i class="fa fa-stop" aria-hidden="true"></i></button>
+            <button id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+          </div>
+          <!--duracion-musica-->
+          <div class="duration">
+            <input id="duration_slider" type="range" min="0" max="100" value="0" >
+          </div>
+            <button id="auto">Reproducción Automática <i class="fa fa-circle" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <!--<div id="multimedia">-->
+        <!--<div class="mul eaudio">-->
+          <!--<audio id="stream" controls="" preload="none" autostart="0" style="width: 80%; display: block; margin: 8px auto;">-->
+            <!--<source src="https://stream.zeno.fm/sg11xrm1qa0uv" type="audio/mpeg">-->
+          <!--</audio>-->
+        <!--</div>-->
+      <!--</div>-->
+      <script src="./assets/js/script.js"></script>
   </body>
 </html>
