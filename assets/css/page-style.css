@@ -105,13 +105,14 @@ body{
   align-items: center;
   justify-content: center;
   background: linear-gradient(to right, #5D6D7E, #566573);
+  flex-wrap: wrap;
 }
 .main button {
   padding: 10px 12px;
   margin: 0 10px;
 }
 
-.main #logo {
+#logo {
   position: absolute;
   top: 10px;
   left: 30px;
@@ -141,7 +142,7 @@ input[type="range"] {
   -webkit-appearance: none;
   width: 50%;
   outline: none;
-  height: 2px;
+  height: 5px;
   margin: 0 15px;
 }
 input[type="range"]::-webkit-slider-thumb {
