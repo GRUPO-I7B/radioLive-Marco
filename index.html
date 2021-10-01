@@ -14,7 +14,6 @@
           <span class = "header-text primary">Tu música favorita la encuentras aqui</span>
           <span class = "header-text secondary">Radio en Vivo </span>
           <span class = "header-text thirdary">Disfruta!</span>
-
         </h1>
       </div>
     </header>
@@ -48,6 +47,23 @@
             <input type="range" min="0" max="100" value="90" id="rango">
           </div>
         </div>
+      </div>
+      <div class="container">
+      <h2>Chat</h2>
+      <div id="chat-container" class="chat-container">
+        <div id="chat" class="chat">
+          <div id="datos-chat" class="datos-chat">
+            <span class="name-cliente">Jenny</span>
+            <span class="msg-cliente">Hola como estas</span>
+            <span class="time">10:04 am</span>
+          </div>
+        </div>
+      </div>
+      <form action="#" method="POST">
+        <input type="text" class="campo-chat" name="nombre" placeholder="Ingresa tu nombre">
+        <textarea class="campo-mensaje" name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
+        <input type="submit" class="campo-chat btn-enviar" name="enviar" value="Enviar">
+      </form>
       </div>
       <script src="./assets/js/script.js"></script>
   </body>

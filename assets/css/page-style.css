@@ -3,10 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body{
   font-family: 'Exo', sans-serif;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,22 +18,20 @@ body{
   width: 100%;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
-
 .header-elements{
   position: absolute;
   top:20%;
   left:10%;
   transform: translateY(-50%);
 }
-
 .header-text{
   font-size: 50px;
   margin-bottom: 5px;
   animation-name: moveInRight;
   animation-duration:2s;
 }
-
 @keyframes moveInRight{
   0%{
     transform:translateX(-20px);
@@ -46,22 +43,18 @@ body{
     transform: translate(0);
   }
 }
-
 .primary{
   display: block;
   text-transform: uppercase;
   font-size: 15px;
   margin-bottom: 15px;
 }
-
 .secondary{
   display: block;
 }
-
 .thirdary{
   display: block;
 }
-
 .btn-white:link,
 .btn-white:visited{
   font-family: 'Nunito', sans-serif;
@@ -75,7 +68,6 @@ body{
   animation-name: fadeIn;
   animation-duration: 3s;
 }
-
 @keyframes fadeIn{
   0%{
     opacity: 0;
@@ -84,15 +76,12 @@ body{
     opacity: 1;
   }
 }
-
-
 .btn-white:hover{
   background: rgb(230, 230, 230);
   transform: translateY(-2px);
   box-shadow:1px 1px 30px rgba(0, 0, 0, 0.38);
   transition: box-shadow 1s;
 }
-
 .btn-white:active{
   transform: translateY(2px);
   box-shadow:1px 1px 20px rgba(0, 0, 0, 0.38);
@@ -194,7 +183,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: rgba(245, 245, 245, 0.1);
 }
 .informacion {
-  margin-top: 15%;
+  margin-top: 10%;
   width: 100%;
 }
 /* parte izquierda */
@@ -227,7 +216,7 @@ input[type="range"]::-webkit-slider-thumb {
   transform: translateX(-50%);
   text-transform: capitalize;
   color: #fff;
-  font-size: 35px;
+  font-size: 3em;
 }
 .right #artist {
   position: absolute;
@@ -236,7 +225,7 @@ input[type="range"]::-webkit-slider-thumb {
   transform: translateX(-50%);
   text-transform: capitalize;
   color: #fff;
-  font-size: 18px;
+  font-size: 2em;
 }
 #play {
   background: #FF8A65;
@@ -264,4 +253,68 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .right .show_song_no p:nth-child(2) {
   margin: 0 5px;
+}
+/* Comienza diseño del chat */
+.container {
+  width: 50%;
+  text-align: center;
+  margin-top: 2em;
+  background-color: rgba(250, 24, 20, 0.2);
+  border-radius: 5px;
+}
+.chat-container {
+ width: 95%;
+ background: #FF8A65;
+ margin: 0 auto;
+ padding: 5px;
+ border-radius: 12px;
+ margin-bottom: 16em;
+}
+.caja-chat {
+  width: 90%;
+  height: 400px;
+}
+.chat {
+  width: 100%;
+}
+.datos-chat {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid silver;
+  font-weight: bold;
+  font-family: sans-serif, Helvetica;
+  display: flex;
+}
+.campo-chat {
+  width: 95%;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.campo-mensaje {
+  width: 95%;
+  height: 4em;
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: #000;
+}
+.campo-chat, .campo-mensaje {
+  margin-bottom: 3px;
+}
+.name-cliente {
+  background-color: #cfe2f3;
+  padding: 4px 30px 4px 4px;
+  border-radius: 5px;
+  color: #1c62c4;
+}
+.msg-cliente {
+  flex-grow: 5;
+  background-color: #fbf8f6;
+  border-radius: 5px;
+  color: #2f91da;
+}
+.btn-enviar {
+  margin-top: 8px;
 }
