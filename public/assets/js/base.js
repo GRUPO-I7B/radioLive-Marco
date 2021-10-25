@@ -81,7 +81,7 @@ const usuarioActivo = (user) => {
     
 }
 const totalUsuarios = (user) => {
-    seccionListaUsuarios.innerHTML= `
+    seccionListaUsuarios.innerHTML+= `
         <div class="usuario">
           <div class="avatar">
              <img src="${user.photoURL}" alt="img">
@@ -96,6 +96,9 @@ const totalUsuarios = (user) => {
              </span>
         </div>
        `;
+
+    //userold = user.photoURL;
+    //nameold = user.displayName;
 }
 const contenidoChat = (user) => {
   formulario.addEventListener('submit', (e) => {
