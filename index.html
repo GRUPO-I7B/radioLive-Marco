@@ -4,8 +4,35 @@
     <meta charset="utf-8">
     <title>Radio Live</title>
     <link rel="stylesheet" href="./assets/css/page-style.css">
+    <link rel="stylesheet" href="./assets/css/chat-style.css">
     <link href="https://fonts.googleapis.com/css?family=Exo:900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <script defer type="module" src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer type="module" src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer type="module" src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script type="module">
+      
+// Your web app's Firebase configuration
+var firebaseConfig = {
+
+  apiKey: "AIzaSyDLRZEzbbYYpZCsxiOQ_RFxfzHTs__Fks0",
+
+  authDomain: "radio-chat-e8643.firebaseapp.com",
+
+  projectId: "radio-chat-e8643",
+
+  storageBucket: "radio-chat-e8643.appspot.com",
+
+  messagingSenderId: "601469767644",
+
+  appId: "1:601469767644:web:4230928a82e2a181604919"
+
+};
+
+// Initialize Firebase
+
+firebase.initializeApp(firebaseConfig);
+    </script>
   </head>
   <body>
     <header class = "header">
@@ -48,23 +75,179 @@
           </div>
         </div>
       </div>
-      <div class="container">
-      <h2>Chat</h2>
-      <div id="chat-container" class="chat-container">
-        <div id="chat" class="chat">
-          <div id="datos-chat" class="datos-chat">
-            <span class="name-cliente">Jenny</span>
-            <span class="msg-cliente">Hola como estas</span>
-            <span class="time">10:04 am</span>
-          </div>
+      <section id="formulario" class="body-chat">
+    <div class="seccion-titulo" id="botones">
+    </div>
+    <div class="seccion-usuarios">
+        <div class="seccion-buscar">
+            <div class="input-buscar">
+                <input type="search" placeholder="Buscar usuario">
+                <i class="fas fa-search"></i>
+            </div>
         </div>
-      </div>
-      <form action="#" method="POST">
-        <input type="text" class="campo-chat" name="nombre" placeholder="Ingresa tu nombre">
-        <textarea class="campo-mensaje" name="mensaje" placeholder="Ingresa tu mensaje"></textarea>
-        <input type="submit" class="campo-chat btn-enviar" name="enviar" value="Enviar">
-      </form>
-      </div>
+        <div id="seccionListaUsuarios" class="seccion-lista-usuarios">
+            <div class="usuario">
+                <div class="avatar">
+                    <img src="./assets/img/perfil1.webp" alt="img">
+                    <span class="estado-usuario enlinea"></span>
+                </div>
+                <div class="cuerpo">
+                    <span> Nombre apellido</span>
+                    <span>detalles de mensaje</span>
+                </div>
+                <span class="notificacion">
+                    3
+                </span>
+            </div>
+            <div class="usuario">
+                <div class="avatar">
+                    <img src="./assets/img/perfil2.webp" alt="img">
+                    <span class="estado-usuario ocupado"></span>
+                </div>
+                <div class="cuerpo">
+                    <span> Nombre apellido</span>
+                    <span>detalles de mensaje</span>
+                </div>
+                <span class="notificacion">
+                    1
+                </span>
+            </div>
+            <div class="usuario">
+                <div class="avatar">
+                    <img src="./assets/img/perfil3.webp" alt="img">
+                    <span class="estado-usuario desconectado"></span>
+                </div>
+                <div class="cuerpo">
+                    <span> Nombre apellido</span>
+                    <span>detalles de mensaje</span>
+                </div>
+                <span class="notificacion">
+                    1
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="seccion-chat">
+        <div id="usuarioSeleccionado" class="usuario-seleccionado">
+            <div class="avatar">
+                <img src="./assets/img/perfil1.webp" alt="img">
+            </div>
+            <div class="cuerpo">
+                <span>Nombre de usuario</span>
+                <span id="userText" class="userText" >Activo - Escribiendo...</span>
+            </div>
+            <div class="opciones">
+                <ul>
+                    <li>
+                        <button type="button"><i class="fas fa-video"></i></button>
+                    </li>
+                    <li>
+                        <button type="button"><i class="fas fa-phone-alt"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="panelChat" class="panel-chat">
+            <div id="chatMessage" class="mensaje">
+                <div class="avatar">
+                    <img src="./assets/img/perfil1.webp" alt="img">
+                </div>
+                <div class="cuerpo">
+                    <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+                    <div class="texto">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
+                        <span class="tiempo">
+                            <i class="far fa-clock"></i>
+                            Hace 5 min
+                        </span>
+                    </div>
+                    <ul class="opciones-msj">
+                        <li>
+                            <button type="button">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <i class="fas fa-share-square"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- derecha -->
+            <div id="chatMessageLeft" class="mensaje left">
+                <div class="cuerpo">
+                    <!-- <img src="http://localhost/multimedia/png/user-foto-3.png" alt=""> -->
+                    <div class="texto">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor eligendi voluptatum dolore voluptas iure.
+                        <span class="tiempo">
+                            <i class="far fa-clock"></i>
+                            Hace 6 min
+                        </span>
+                    </div>
+                    <ul class="opciones-msj">
+                        <li>
+                            <button type="button">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button">
+                                <i class="fas fa-share-square"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="avatar">
+                    <img src="./assets/img/perfil2.webp" alt="img">
+                </div>
+            </div>
+        </div>
+        <div class="panel-escritura">
+            <form class="textarea">
+                <div class="opcines">
+                    <button type="button">
+                        <i class="fas fa-file"></i>
+                        <label for="file"></label>
+                        <input type="file" id="file">
+                    </button>
+                    <button type="button">
+                        <i class="far fa-image"></i>
+                        <label for="img"></label>
+                        <input type="file" id="img">
+                    </button>
+                </div>
+                <textarea id="textoChat" placeholder="Escribir mensaje"></textarea>
+                <button type="submit" class="enviar">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+<!--====  End of html  ====-->
+<style>
+.mis-redes a {
+    color: inherit;
+    margin-right: .5rem;
+    display: inline-block;
+}
+.mis-redes a:hover {
+    color: #309B76;
+    transform: scale(1.4)
+}
+</style>
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;">Apock graficos</p>
+    <div>
+        <a target="_blank" href="https://www.facebook.com/ApockGraficos"><i class="fab fa-facebook-square"></i></a>
+        <a target="_blank" href="https://twitter.com/ApockGraficos"><i class="fab fa-twitter"></i></a>
+        <a target="_blank" href="https://www.instagram.com/ApockGraficos"><i class="fab fa-instagram"></i></a>
+        <a target="_blank" href="https://www.youtube.com/channel/UC15DkMZQ80aoW_Rqk4n2T_w"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
       <script src="./assets/js/script.js"></script>
+      <script type="module" src="./assets/js/base.js"></script>
   </body>
 </html>

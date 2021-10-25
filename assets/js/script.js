@@ -16,18 +16,19 @@ let playing_song = false;
 
 //creando el elemento audio
 let radio = new Audio('https://stream.zeno.fm/sg11xrm1qa0uv');
-
+let original = new Audio('https://node-22.zeno.fm/sg11xrm1qa0uv?rj-ttl=5&rj-tok=AAABfF928RgAZfAMD0hOBomREw');
+let yinetradio = new Audio('https://cp.usastreams.com/pr2g/APPlayerRadioHTML5.aspx?stream=http://streaming.servicioswebmx.com:8030//;&fondo=02&formato=mp3&color=14&titulo=2&autoStart=1&vol=5&tipo=13&nombre=Yin+Et+Radio&botonPlay=3&imagen=https://yinetradio.com/logo.png')
 play.addEventListener('click', () => {
-  radio.play();
+  original.play();
   
 });
 stop.addEventListener('click', () => {
-  radio.pause();
+  original.pause();
 });
 //rango del volumen
 rango.oninput =(() => {
   let value = rango.value;
   volume_show.textContent = value;
-  radio.volume = value/parseFloat(100);
+  original.volume = value/parseFloat(100);
 });
 
